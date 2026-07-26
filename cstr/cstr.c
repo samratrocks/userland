@@ -18,14 +18,10 @@ my_strlen(const char *s)
 char *
 my_strcpy(char *dst, const char *src)
 {
-	/* Iterate one at a time
-	 * set the value to the dereference operations
-	 * once it works for one it should work for all
-	*/
 	char *start = dst;
 	while (*src != '\0')
 	{
-		*dst = *src;	/* Here im assinging the value of src to dst */
+		*dst = *src;
 		src++;
 		dst++;
 	}
@@ -39,13 +35,30 @@ my_strcpy(char *dst, const char *src)
 void *
 my_memcpy(void *dst, const void *src, size_t n)
 {
-	return (dst);
+	char *start = dst;
+	char *d = dst;
+	const char *s = src;
+	size_t size = 0;
+	
+	while (size < n)
+	{
+		*d = *s;
+		s++;
+		d++;
+		size++;
+	}
+	return (start);
 }
 
 /* Compare a and b byte by byte. 0 if equal, sign of first difference else. */
 int
 my_strcmp(const char *a, const char *b)
 {
-	return (0);
+	while (*a != '\0' && *a == *b)
+	{
+		a++;
+		b++;
+	}
+	return ((unsigned char) *a - (unsigned char) *b);
 }
  
